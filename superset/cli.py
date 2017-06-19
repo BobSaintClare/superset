@@ -68,6 +68,7 @@ def runserver(debug, no_reload, address, port, timeout, workers, socket):
             "-w {workers} "
             "--timeout {timeout} "
             "-b " + addr_str +
+            "--log-level debug "
             "--limit-request-line 0 "
             "--limit-request-field_size 0 "
             "superset:app").format(**locals())
