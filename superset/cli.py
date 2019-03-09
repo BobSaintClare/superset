@@ -130,14 +130,14 @@ def runserver(debug, console_log, use_reloader, address, port, timeout, workers,
             "use the 'gunicorn' command instead.")
         addr_str = f' unix:{socket} ' if socket else f' {address}:{port} '
         cmd = (
-            "gunicorn "
-            "-w {workers} "
-            "--timeout {timeout} "
-            "-b " + addr_str +
-            "--log-level debug "
-            "--limit-request-line 0 "
-            "--limit-request-field_size 0 "
-            "superset:app").format(**locals())
+            'gunicorn '
+            f'-w {workers} '
+            f'--timeout {timeout} '
+            f'-b {addr_str} '
+            '--limit-request-line 0 '
+            '--limit-request-field_size 0 '
+            'superset:app'
+        )
         print(Fore.GREEN + "Starting server with command: ")
         print(Fore.YELLOW + cmd)
         print(Style.RESET_ALL)
